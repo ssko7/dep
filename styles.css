@@ -459,49 +459,90 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-/* ===== Sponsors Section ===== */
-.sponsors {
-  padding: 5rem 0;
-  background-color: transparent;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+/* Sponsor Cards */
+/* Sponsors Section */
+.sponsor-scroll-container {
+overflow: hidden;
+width: 100%;
+position: relative;
+margin: 2rem 0;
 }
 
-.sponsor-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3rem;
+.sponsor-text {
+color: var(--text-secondary);
+font-size: 1.2rem;
+margin-bottom: 1rem;
+top: 1000px;
+left: 20px;
+text-align: center;
 }
 
-.sponsor-item {
-  background: var(--dark-secondary);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
+.sponsor-card-grid {
+display: flex;
+animation: scroll 30s linear infinite;
+width: max-content;
 }
 
-.sponsor-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+.sponsor-card {
+background: var(--dark-secondary);
+border-radius: 12px;
+overflow: hidden;
+transition: transform 0.3s ease;
+border: 1px solid rgba(255,255,255,0.1);
+margin: 0 1rem;
+min-width: 300px;
+flex-shrink: 0;
 }
 
-.sponsor-item img {
-  max-width: 180px;
-  max-height: 80px;
-  filter: grayscale(1) invert(0.8);
-  transition: all 0.3s ease;
+@keyframes scroll {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
 }
 
-.sponsor-item:hover img {
-  filter: grayscale(0) invert(0);
-  transform: scale(1.05);
+.sponsor-card:hover {
+transform: translateY(-5px);
+}
+
+.sponsor-card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-bottom: 2px solid var(--accent);
+}
+
+.sponsor-info {
+padding: 20px;
+text-align: center;
+}
+
+@media (max-width: 768px) {
+.sponsor-card {
+    min-width: 250px;
+    margin: 0 0.5rem;
+}
+
+.sponsor-card img {
+    height: 160px;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-55%); }
+}
+}
+
+@media (max-width: 480px) {
+.sponsor-card {
+    min-width: 220px;
+}
+
+.sponsor-info h3 {
+    font-size: 1rem;
+}
+
+.sponsor-info p {
+    font-size: 0.8rem;
+}
 }
 
 /* ===== Button Styles ===== */
